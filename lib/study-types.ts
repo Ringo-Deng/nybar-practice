@@ -1,0 +1,11 @@
+export type Bilingual={zh:string;en:string};
+export type KnowledgeReview={points:(Bilingual&{term:string})[];warning:Bilingual;sources:{label:string;url:string}[]};
+export type Option={id:string;en:string;zh:string};
+export type TextbookReference={book:string;chapter:string;pages:string;section:string;bookId?:string;pageNumbers?:number[];note?:string};
+export type Explanation={kind?:'publisher-original';publisherReference?:{text:string;book:string;chapters:number[]};originalPdfPages?:number[];reasoningSteps?:{title:string;detail:string}[];textbookExample?:{title:string;facts:string;lesson:string;connection:string};textbookReferences?:TextbookReference[];concepts?:{term:string;detail:string}[];answer:string;topic:string;en:string;zh:string;ruleEn:string;ruleZh:string;warning:string;options:Record<string,{en:string;zh:string}>;source:string;sourceUrl:string};
+export type Question={sourceId:string;sourceSet?:string;sourceSession?:number;sourcePages?:number[];sourceTitle?:string;subjectId:string;chapterId?:string;relatedChapterIds?:string[];topicTags?:string[];knowledge?:KnowledgeReview;id:string;number:number;stem:string;stemZh:string;ask:string;askZh:string;options:Option[];explanation?:Explanation};
+export type Session={id:string;mode:'practice'|'exam'|'wrong';status:'active'|'finished';questionIds:string[];position:number;startedAt:number;finishedAt:number|null;answers:Record<string,{selected:string;correct?:boolean}>;score?:number};
+export type StudyStat={answered:number;correct:number;accuracy:number|null};
+export type ChapterStudyStat=StudyStat&{chapterId:string|null};
+export type SubjectStudyStat=StudyStat&{subjectId:string;chapters:ChapterStudyStat[]};
+export type StudyData={questions:Question[];session:Session|null;sessions:Session[];stats:StudyStat&{wrongCount:number;subjects:SubjectStudyStat[]};mistakes:{questionId:string;wrongCount:number;selected:string;lastCorrect:boolean;topic:string}[]};

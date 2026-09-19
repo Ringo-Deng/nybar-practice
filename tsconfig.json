@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
+    "types": [
+      "node",
+      "vite/client"
+    ]
+  },
+  "include": [
+    "app",
+    "lib",
+    "hooks",
+    "types",
+    "github-pages",
+    "vite.github.config.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist-github"
+  ]
+}
