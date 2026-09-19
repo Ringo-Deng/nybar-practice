@@ -9,6 +9,9 @@ import {newglawNotesForQuestion} from '@/lib/newglaw-notes';
 import {NewglawKnowledgeNotes} from './newglaw-knowledge-notes';
 import {normalizeExplanationText} from '@/lib/question-text';
 import {sourceById} from '@/lib/question-sources';
+import {subjectById} from '@/lib/subjects';
+import {useTranslation} from './use-translation';
+import {TranslationStatus} from './translation-status';
 
 export function SourceImages({images,label}:{images:SourceImage[];label:string}){
  const assetUrl=(src:string)=>typeof document==='undefined'?src:new URL(src.replace(/^\/+/,''),new URL(import.meta.env.BASE_URL,document.baseURI)).toString();
@@ -19,16 +22,24 @@ export function OriginalAnswerReview({question:q,answer,onOpenTextbook}:{questio
  const e=q.explanation!;
  const refs=linkedTextbooks(e.textbookReferences);
  const newglawNotes=newglawNotesForQuestion(q);
- const[showZh,setShowZh]=useState(false);
+ const[zhQuestionId,setZhQuestionId]=useState<string|null>(null);
+ const showZh=zhQuestionId===q.id;
  const english=normalizeExplanationText(e.en);
- const storedZh=normalizeExplanationText(e.zh);
+ const subject=subjectById(q.subjectId);
+ const translation=useTranslation(`${q.id}:explanation`,{
+  body:{en:english,zh:normalizeExplanationText(e.zh)},
+  topic:{en:e.topic,zh:e.topic===subject?.en?subject.zh:undefined},
+ });
+ const storedZh=normalizeExplanationText(translation.values.body??'');
+ function toggleLanguage(){if(showZh){translation.cancel();setZhQuestionId(null);}else{setZhQuestionId(q.id);void translation.load();}}
  return <article id="answer-review" className="answer-review publisher-review" aria-label="原书答案与解析">
   <h2 className="sr-only">原书答案与解析</h2>
   <div className="review-body">
    <div className={`original-answer-summary ${answer.selected===e.answer?'right':'wrong'}`} role="status"><strong>正确答案 {e.answer}</strong><span>·</span><span>你的选择 {answer.selected||'未作答'}</span></div>
    {e.warning&&<p className="source-review-note">{e.warning}</p>}
-   {!!english&&!!storedZh&&<div className="review-language-control"><Button variant="ghost" size="sm" aria-pressed={showZh} onClick={()=>setShowZh(value=>!value)}><Languages size={16}/> {showZh?'显示英文':'显示中文'}</Button></div>}
-   {showZh&&storedZh?<section className="analysis-section original-analysis" lang="zh-CN">{storedZh.split(/\n\s*\n/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}</section>:<section className="analysis-section original-analysis" lang="en"><div className="tested-topic">Area of law assessed: {e.topic}</div>{english.split(/\n\s*\n/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}</section>}
+   {(!!english||!!storedZh)&&<div className="review-language-control"><Button variant="ghost" size="sm" aria-pressed={showZh} onClick={toggleLanguage}><Languages size={16}/> {showZh?'显示英文':'显示中文'}</Button></div>}
+   {showZh&&<TranslationStatus translation={translation}/>}
+   {showZh&&storedZh?<section className="analysis-section original-analysis" lang="zh-CN"><div className="tested-topic">本题考查：{translation.values.topic||e.topic}</div>{storedZh.split(/\n\s*\n/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}</section>:<section className="analysis-section original-analysis" lang="en"><div className="tested-topic">Area of law assessed: {e.topic}</div>{english.split(/\n\s*\n/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}</section>}
    {!!e.images?.length&&<SourceImages images={e.images} label="原文图表"/>}
    <NewglawKnowledgeNotes notes={newglawNotes}/>
   </div>
