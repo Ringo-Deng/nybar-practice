@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": "uworld-2025-source",
+    "title": "2025UWorld MBE QBank（上传原文件）",
+    "shortTitle": "UWorld 题库原文",
+    "subjectId": "my-materials",
+    "version": "上传文件名标为 2025；附录界面标为 2023Version",
+    "pageCount": 5950,
+    "url": "/uworld-2025/source.pdf",
+    "sha256": "859fe102be0372d7c0517af8a52c758683a75cc4b287803bc99951462b5d6e01"
+  }
+]

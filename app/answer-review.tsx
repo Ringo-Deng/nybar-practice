@@ -17,7 +17,7 @@ function Terms({text,label=false}:{text:string;label?:boolean}){
 export function AnswerReview({question:q,answer,onOpenTextbook}:{question:Question;answer:{selected:string;correct?:boolean};onOpenTextbook:(ref:LinkedTextbookReference)=>void}){
  const e=q.explanation,k=q.knowledge;
  if(!e)return null;
- if(e.kind==='publisher-original')return <OriginalAnswerReview question={q} onOpenTextbook={onOpenTextbook}/>;
+ if(e.kind==='publisher-original')return <OriginalAnswerReview question={q} answer={answer} onOpenTextbook={onOpenTextbook}/>;
  const warning=e.textbookReferences?e.warning:q.sourceId==='demo'&&k?k.warning.zh:e.warning;
  const newglawNotes=newglawNotesForQuestion(q);
  const hasQuickNotes=!!(k?.points.length||warning.trim());

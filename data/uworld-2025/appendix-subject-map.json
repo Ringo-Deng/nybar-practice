@@ -1,0 +1,1002 @@
+{
+  "5357": {
+    "subjectId": "civil-procedure",
+    "topic": "Corporate citizenship and diversity jurisdiction",
+    "reason": "公司公民身份与多元国籍管辖"
+  },
+  "5360": {
+    "subjectId": "constitutional-law",
+    "topic": "Supremacy clause and habeas corpus",
+    "reason": "州法院干预联邦拘禁的宪法权限"
+  },
+  "5363": {
+    "subjectId": "contracts",
+    "topic": "Acceptance by shipment",
+    "reason": "UCC发货承诺及合同条款形成"
+  },
+  "5366": {
+    "subjectId": "torts",
+    "topic": "Affirmative duty to act",
+    "reason": "过失侵权中的作为义务"
+  },
+  "5369": {
+    "subjectId": "evidence",
+    "topic": "Consciousness of guilt and relevance",
+    "reason": "逃跑行为作为有罪意识证据的关联性"
+  },
+  "5371": {
+    "subjectId": "real-property",
+    "topic": "Fee simple determinable",
+    "reason": "可自动终止产权与征收补偿归属"
+  },
+  "5374": {
+    "subjectId": "civil-procedure",
+    "topic": "Supplemental jurisdiction",
+    "reason": "联邦主请求撤销后的补充管辖"
+  },
+  "5377": {
+    "subjectId": "contracts",
+    "topic": "Certainty of essential terms",
+    "reason": "服务合同约定价格的确定性"
+  },
+  "5380": {
+    "subjectId": "constitutional-law",
+    "topic": "Freedom of the press",
+    "reason": "新闻自由与普遍适用法律"
+  },
+  "5383": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Accomplice liability",
+    "reason": "协助者的谋杀共犯责任"
+  },
+  "5386": {
+    "subjectId": "real-property",
+    "topic": "Identification of the grantee",
+    "reason": "契据受让人必须可确定"
+  },
+  "5389": {
+    "subjectId": "torts",
+    "topic": "Children engaging in adult activities",
+    "reason": "未成年人从事成人活动的注意标准"
+  },
+  "5392": {
+    "subjectId": "evidence",
+    "topic": "Attorney-client privilege waiver",
+    "reason": "律师客户特权放弃范围"
+  },
+  "5395": {
+    "subjectId": "real-property",
+    "topic": "Equitable servitudes and notice",
+    "reason": "衡平地役限制对后手买受人的效力"
+  },
+  "5398": {
+    "subjectId": "civil-procedure",
+    "topic": "Removal and the forum-defendant rule",
+    "reason": "存在联邦问题时的移送规则"
+  },
+  "5401": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Criminal attempt",
+    "reason": "犯罪未遂的故意与外在行为"
+  },
+  "5404": {
+    "subjectId": "contracts",
+    "topic": "Undue influence",
+    "reason": "不当影响导致合同可撤销"
+  },
+  "5407": {
+    "subjectId": "constitutional-law",
+    "topic": "Mootness",
+    "reason": "案件争议消失后的可诉性"
+  },
+  "5410": {
+    "subjectId": "evidence",
+    "topic": "Expert testimony reliability",
+    "reason": "专家证言的相关性与可靠性"
+  },
+  "5413": {
+    "subjectId": "torts",
+    "topic": "Independent contractors and retained control",
+    "reason": "保留控制权时的侵权责任"
+  },
+  "5416": {
+    "subjectId": "real-property",
+    "topic": "Broker commissions and listing agreements",
+    "reason": "房地产经纪佣金取得条件"
+  },
+  "5419": {
+    "subjectId": "civil-procedure",
+    "topic": "Specific personal jurisdiction",
+    "reason": "具体对人管辖的最低联系要求"
+  },
+  "5422": {
+    "subjectId": "contracts",
+    "topic": "Indefiniteness",
+    "reason": "雇佣合同核心条款不确定"
+  },
+  "5425": {
+    "subjectId": "evidence",
+    "topic": "Best evidence rule",
+    "reason": "证明书面内容时须提交原件的规则"
+  },
+  "5428": {
+    "subjectId": "torts",
+    "topic": "Intentional interference with contract",
+    "reason": "故意干涉合同履行的侵权要件"
+  },
+  "5431": {
+    "subjectId": "constitutional-law",
+    "topic": "Political-question doctrine",
+    "reason": "外交承认及权力分支争议的可诉性"
+  },
+  "5434": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Embezzlement",
+    "reason": "侵占犯罪及涉案价值认定"
+  },
+  "5437": {
+    "subjectId": "contracts",
+    "topic": "Implied-in-fact contracts",
+    "reason": "通过行为形成默示事实合同"
+  },
+  "5440": {
+    "subjectId": "civil-procedure",
+    "topic": "Waiver of service of process",
+    "reason": "请求豁免送达不等于已完成送达"
+  },
+  "5443": {
+    "subjectId": "constitutional-law",
+    "topic": "Commerce power",
+    "reason": "国会商业条款立法权限"
+  },
+  "5446": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Lesser included offenses",
+    "reason": "恶意谋杀与非自愿过失杀人的较轻罪关系"
+  },
+  "5449": {
+    "subjectId": "evidence",
+    "topic": "Authentication of photographs",
+    "reason": "照片证据的真实性认证"
+  },
+  "5452": {
+    "subjectId": "torts",
+    "topic": "Conversion",
+    "reason": "动产转换侵权与错误认识"
+  },
+  "5455": {
+    "subjectId": "real-property",
+    "topic": "Executory interests",
+    "reason": "未来权益及附执行限制产权"
+  },
+  "5458": {
+    "subjectId": "evidence",
+    "topic": "Forfeiture by wrongdoing",
+    "reason": "不法行为导致证人缺席时的证据异议丧失"
+  },
+  "5461": {
+    "subjectId": "civil-procedure",
+    "topic": "Transfer of venue",
+    "reason": "诉讼地点移转与便利性"
+  },
+  "5464": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Lesser included offense instructions",
+    "reason": "较轻包含罪的陪审团指示"
+  },
+  "5467": {
+    "subjectId": "constitutional-law",
+    "topic": "Presidential removal power",
+    "reason": "总统罢免官员与权力分立"
+  },
+  "5470": {
+    "subjectId": "contracts",
+    "topic": "Reformation for mutual mistake",
+    "reason": "双方错误导致书面合同更正"
+  },
+  "5473": {
+    "subjectId": "real-property",
+    "topic": "Equitable mortgages",
+    "reason": "以产权转让担保债务的衡平抵押"
+  },
+  "5476": {
+    "subjectId": "evidence",
+    "topic": "Preserving evidentiary objections",
+    "reason": "及时提出证据异议以保留上诉权"
+  },
+  "5479": {
+    "subjectId": "torts",
+    "topic": "Modified comparative fault",
+    "reason": "修正比较过失与损害赔偿"
+  },
+  "5482": {
+    "subjectId": "civil-procedure",
+    "topic": "Temporary restraining orders",
+    "reason": "临时限制令的具体内容要求"
+  },
+  "5485": {
+    "subjectId": "constitutional-law",
+    "topic": "Taxing and spending power",
+    "reason": "国会拨款与总统执行权限"
+  },
+  "5488": {
+    "subjectId": "evidence",
+    "topic": "Lay opinion testimony",
+    "reason": "普通证人的意见证言范围"
+  },
+  "5491": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Solicitation",
+    "reason": "普通法教唆犯罪要件"
+  },
+  "5494": {
+    "subjectId": "contracts",
+    "topic": "Bilateral and unilateral offers",
+    "reason": "开始履行对要约承诺的效力"
+  },
+  "5497": {
+    "subjectId": "torts",
+    "topic": "Punitive damages",
+    "reason": "侵权惩罚性赔偿要求的行为程度"
+  },
+  "5500": {
+    "subjectId": "real-property",
+    "topic": "Deed in lieu of foreclosure",
+    "reason": "以契据抵债替代止赎"
+  },
+  "5502": {
+    "subjectId": "civil-procedure",
+    "topic": "Relation back of amended pleadings",
+    "reason": "新增被告与修改诉状的追溯效力"
+  },
+  "5505": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Solicitation",
+    "reason": "指使他人犯罪的普通法责任"
+  },
+  "5508": {
+    "subjectId": "contracts",
+    "topic": "Mutual mistake and assumption of risk",
+    "reason": "双方错误与承担价格判断风险"
+  },
+  "5511": {
+    "subjectId": "torts",
+    "topic": "Defense of property and excessive force",
+    "reason": "保护财产的抗辩及过度武力"
+  },
+  "5514": {
+    "subjectId": "evidence",
+    "topic": "Hearsay",
+    "reason": "庭外陈述用于证明事实的可采性"
+  },
+  "5517": {
+    "subjectId": "real-property",
+    "topic": "Time is of the essence",
+    "reason": "不动产买卖交割期限的效力"
+  },
+  "5520": {
+    "subjectId": "constitutional-law",
+    "topic": "Appointments Clause",
+    "reason": "联邦主要官员的任命程序"
+  },
+  "5523": {
+    "subjectId": "civil-procedure",
+    "topic": "Plain error in jury instructions",
+    "reason": "民事陪审团指示异议及明显错误审查"
+  },
+  "5526": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Accessory after the fact",
+    "reason": "犯罪完成后的事后帮助责任"
+  },
+  "5529": {
+    "subjectId": "contracts",
+    "topic": "Conditions precedent",
+    "reason": "合同履行义务的先决条件"
+  },
+  "5532": {
+    "subjectId": "evidence",
+    "topic": "Authentication of physical evidence",
+    "reason": "实物证据真实性初步证明"
+  },
+  "5535": {
+    "subjectId": "constitutional-law",
+    "topic": "State taxation of federal affiliates",
+    "reason": "州对联邦承包商征税的宪法限制"
+  },
+  "5538": {
+    "subjectId": "real-property",
+    "topic": "Adverse possession",
+    "reason": "逆权占有取得不动产所有权"
+  },
+  "5541": {
+    "subjectId": "torts",
+    "topic": "Res ipsa loquitur and comparative fault",
+    "reason": "事实自证过失与原告自身过失"
+  },
+  "5544": {
+    "subjectId": "civil-procedure",
+    "topic": "Objections to jury instructions",
+    "reason": "民事陪审团指示的异议时限"
+  },
+  "5547": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Exigent circumstances",
+    "reason": "第四修正案紧急情况无令状搜查"
+  },
+  "5550": {
+    "subjectId": "constitutional-law",
+    "topic": "Dormant Commerce Clause",
+    "reason": "州监管对州际商业的负担"
+  },
+  "5553": {
+    "subjectId": "contracts",
+    "topic": "Promissory estoppel and irrevocable offers",
+    "reason": "信赖分包报价使要约不可撤销"
+  },
+  "5556": {
+    "subjectId": "real-property",
+    "topic": "Mortgage liability and foreclosure",
+    "reason": "第三人提供抵押与个人债务责任"
+  },
+  "5558": {
+    "subjectId": "evidence",
+    "topic": "Prior inconsistent statements",
+    "reason": "先前不一致陈述的外部证据弹劾"
+  },
+  "5561": {
+    "subjectId": "torts",
+    "topic": "Assumption of risk and comparative fault",
+    "reason": "过失侵权中的风险自担抗辩"
+  },
+  "5564": {
+    "subjectId": "civil-procedure",
+    "topic": "Voluntary dismissal",
+    "reason": "民事原告自愿撤诉的程序条件"
+  },
+  "5567": {
+    "subjectId": "constitutional-law",
+    "topic": "State-action doctrine",
+    "reason": "私人公用事业行为是否构成政府行为"
+  },
+  "5570": {
+    "subjectId": "contracts",
+    "topic": "Nondisclosure as misrepresentation",
+    "reason": "事实变化未披露构成不实陈述"
+  },
+  "5573": {
+    "subjectId": "evidence",
+    "topic": "Attorney-client privilege and client identity",
+    "reason": "客户身份是否属于律师客户特权"
+  },
+  "5576": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Conspiracy",
+    "reason": "共谋犯罪的协议与特定故意"
+  },
+  "5578": {
+    "subjectId": "real-property",
+    "topic": "Easements appurtenant",
+    "reason": "附属地役权随土地转移"
+  },
+  "5581": {
+    "subjectId": "torts",
+    "topic": "Defense of others",
+    "reason": "保护他人的合理武力特权"
+  },
+  "5584": {
+    "subjectId": "civil-procedure",
+    "topic": "Jury size and unanimity",
+    "reason": "民事陪审人数及一致裁决要求"
+  },
+  "5587": {
+    "subjectId": "evidence",
+    "topic": "Impeachment for impaired perception",
+    "reason": "通过感知障碍弹劾证人"
+  },
+  "5590": {
+    "subjectId": "constitutional-law",
+    "topic": "Equal protection and rational basis",
+    "reason": "平等保护与合理基础审查"
+  },
+  "5593": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Involuntary manslaughter",
+    "reason": "违法行为引发的非自愿过失杀人"
+  },
+  "5596": {
+    "subjectId": "contracts",
+    "topic": "Anticipatory repudiation",
+    "reason": "预期违约与履行保证"
+  },
+  "5599": {
+    "subjectId": "torts",
+    "topic": "Assumption of risk",
+    "reason": "明知并自愿接受侵权风险"
+  },
+  "5602": {
+    "subjectId": "real-property",
+    "topic": "Contribution between cotenants",
+    "reason": "共同权利人分担必要房产费用"
+  },
+  "5605": {
+    "subjectId": "civil-procedure",
+    "topic": "Erie doctrine and choice of law",
+    "reason": "联邦多元管辖案件的法律选择"
+  },
+  "5608": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Booking searches and DNA samples",
+    "reason": "逮捕登记采集DNA的搜查规则"
+  },
+  "5611": {
+    "subjectId": "evidence",
+    "topic": "Prior consistent statements",
+    "reason": "先前一致陈述用于恢复证人可信性"
+  },
+  "5614": {
+    "subjectId": "constitutional-law",
+    "topic": "Equal protection and fundamental rights",
+    "reason": "生育基本权利与严格审查"
+  },
+  "5617": {
+    "subjectId": "contracts",
+    "topic": "Reformation for mutual mistake",
+    "reason": "共同错误导致书面合同更正"
+  },
+  "5620": {
+    "subjectId": "real-property",
+    "topic": "Marketable title",
+    "reason": "限制性约定对适销产权的影响"
+  },
+  "5622": {
+    "subjectId": "torts",
+    "topic": "Intentional infliction of emotional distress",
+    "reason": "故意造成严重精神痛苦"
+  },
+  "5625": {
+    "subjectId": "civil-procedure",
+    "topic": "Erie doctrine and federal rules",
+    "reason": "联邦程序规则与州法的冲突适用"
+  },
+  "5628": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Ineffective assistance of counsel",
+    "reason": "刑事辩护不足与量刑阶段调查义务"
+  },
+  "5631": {
+    "subjectId": "constitutional-law",
+    "topic": "Intergovernmental tax immunity",
+    "reason": "联邦政府免受州直接征税"
+  },
+  "5634": {
+    "subjectId": "contracts",
+    "topic": "Contract modification and consideration",
+    "reason": "普通法合同变更的对价及合意"
+  },
+  "5637": {
+    "subjectId": "torts",
+    "topic": "Abnormally dangerous activities",
+    "reason": "异常危险活动的严格责任"
+  },
+  "5640": {
+    "subjectId": "evidence",
+    "topic": "Self-authentication and nonhearsay purposes",
+    "reason": "报纸自证真实性及非传闻用途"
+  },
+  "5643": {
+    "subjectId": "real-property",
+    "topic": "Assignment of a mortgage note",
+    "reason": "票据转让与抵押权随同转移"
+  },
+  "5646": {
+    "subjectId": "civil-procedure",
+    "topic": "Compulsory counterclaims",
+    "reason": "同一交易引发的强制反诉"
+  },
+  "5649": {
+    "subjectId": "torts",
+    "topic": "Private nuisance",
+    "reason": "重大且不合理妨碍土地使用享有"
+  },
+  "5652": {
+    "subjectId": "constitutional-law",
+    "topic": "Takings Clause and property rights",
+    "reason": "政府消灭财产继承权益是否构成征收"
+  },
+  "5655": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Ineffective assistance and guilty pleas",
+    "reason": "认罪前律师告知遣返风险的义务"
+  },
+  "5658": {
+    "subjectId": "contracts",
+    "topic": "Identification of goods",
+    "reason": "UCC货物特定化的时间"
+  },
+  "5661": {
+    "subjectId": "evidence",
+    "topic": "State law governing privilege",
+    "reason": "联邦审判中证据特权的准据法"
+  },
+  "5663": {
+    "subjectId": "civil-procedure",
+    "topic": "Rule 11 sanctions",
+    "reason": "律师提交诉讼材料的合理调查义务"
+  },
+  "5666": {
+    "subjectId": "constitutional-law",
+    "topic": "Political patronage and free speech",
+    "reason": "政府采购不得不当限制政治表达"
+  },
+  "5669": {
+    "subjectId": "contracts",
+    "topic": "Misrepresentation and rescission",
+    "reason": "错误陈述导致合同可撤销"
+  },
+  "5672": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Exigent circumstances and warrantless entry",
+    "reason": "紧急情况下进入住宅搜查"
+  },
+  "5675": {
+    "subjectId": "real-property",
+    "topic": "Ademption by extinction",
+    "reason": "遗赠特定不动产已处分后的归属"
+  },
+  "5678": {
+    "subjectId": "evidence",
+    "topic": "Business records exception",
+    "reason": "营业记录传闻例外"
+  },
+  "5681": {
+    "subjectId": "real-property",
+    "topic": "Estoppel by deed",
+    "reason": "担保契据与后取得产权"
+  },
+  "5684": {
+    "subjectId": "torts",
+    "topic": "Res ipsa loquitur",
+    "reason": "事实自证过失的传统要件"
+  },
+  "5687": {
+    "subjectId": "civil-procedure",
+    "topic": "Crossclaims",
+    "reason": "共同当事人之间交叉请求的要件"
+  },
+  "5690": {
+    "subjectId": "constitutional-law",
+    "topic": "Right to interstate travel",
+    "reason": "迁徙权与州居民待遇差别"
+  },
+  "5693": {
+    "subjectId": "contracts",
+    "topic": "Supplying omitted contract terms",
+    "reason": "法院补充缺失的非核心合同条款"
+  },
+  "5696": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Transferred intent",
+    "reason": "杀人故意转移及罪名程度"
+  },
+  "5699": {
+    "subjectId": "evidence",
+    "topic": "Mode and order of witness examination",
+    "reason": "法院控制证人作证顺序的证据权限"
+  },
+  "5702": {
+    "subjectId": "real-property",
+    "topic": "Real covenants and notice",
+    "reason": "土地限制对继受人的通知要求"
+  },
+  "5705": {
+    "subjectId": "torts",
+    "topic": "Battery and substantial certainty",
+    "reason": "殴打侵权中的故意与实质确定性"
+  },
+  "5708": {
+    "subjectId": "civil-procedure",
+    "topic": "Modification of scheduling orders",
+    "reason": "案件进度安排修改的正当理由"
+  },
+  "5711": {
+    "subjectId": "constitutional-law",
+    "topic": "Mootness",
+    "reason": "争议经补救消失后的可诉性"
+  },
+  "5714": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Miranda and custodial interrogation",
+    "reason": "羁押讯问与米兰达告知"
+  },
+  "5717": {
+    "subjectId": "torts",
+    "topic": "Strict products liability for components",
+    "reason": "零部件供货商的产品严格责任"
+  },
+  "5720": {
+    "subjectId": "evidence",
+    "topic": "Evidence rules in grand jury proceedings",
+    "reason": "证据规则对大陪审团程序的适用范围"
+  },
+  "5723": {
+    "subjectId": "contracts",
+    "topic": "Frustration of purpose",
+    "reason": "合同目的落空使履行义务消灭"
+  },
+  "5726": {
+    "subjectId": "real-property",
+    "topic": "Disclosure of residential property defects",
+    "reason": "住宅卖方披露缺陷与按现状出售"
+  },
+  "5729": {
+    "subjectId": "civil-procedure",
+    "topic": "Judgment on the pleadings",
+    "reason": "诉状阶段结束后的依诉状裁判"
+  },
+  "5732": {
+    "subjectId": "constitutional-law",
+    "topic": "Discriminatory burdens on interstate commerce",
+    "reason": "地方采购地域限制与休眠商业条款"
+  },
+  "5735": {
+    "subjectId": "contracts",
+    "topic": "Impracticability and restitution",
+    "reason": "履行困难解除与已履行部分返还"
+  },
+  "5738": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Cell-site location data and privacy",
+    "reason": "获取历史手机定位资料的搜查要求"
+  },
+  "5741": {
+    "subjectId": "real-property",
+    "topic": "Fair Housing Act reasonable accommodations",
+    "reason": "租赁住房中的残障合理便利"
+  },
+  "5744": {
+    "subjectId": "evidence",
+    "topic": "Compromise negotiations",
+    "reason": "和解陈述在后续刑事程序的证据用途"
+  },
+  "5747": {
+    "subjectId": "torts",
+    "topic": "Intervening negligence and proximate cause",
+    "reason": "后续医疗过失是否切断因果关系"
+  },
+  "5750": {
+    "subjectId": "civil-procedure",
+    "topic": "Judgment as a matter of law",
+    "reason": "证据不足时的依法判决"
+  },
+  "5753": {
+    "subjectId": "contracts",
+    "topic": "Modification and unanticipated circumstances",
+    "reason": "不可预见情势下的公平合同变更"
+  },
+  "5756": {
+    "subjectId": "constitutional-law",
+    "topic": "Physical takings and just compensation",
+    "reason": "公共通行地役权构成征收的补偿要求"
+  },
+  "5759": {
+    "subjectId": "real-property",
+    "topic": "Forged deeds",
+    "reason": "欺骗签署的伪造契据不能转移产权"
+  },
+  "5762": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Impartial jury and for-cause challenges",
+    "reason": "刑事陪审员偏见与上诉撤销标准"
+  },
+  "5765": {
+    "subjectId": "evidence",
+    "topic": "Multiple hearsay",
+    "reason": "多重传闻须逐层满足例外"
+  },
+  "5768": {
+    "subjectId": "torts",
+    "topic": "Intrusion upon seclusion",
+    "reason": "侵入私人事务的隐私侵权"
+  },
+  "5771": {
+    "subjectId": "civil-procedure",
+    "topic": "Renewed judgment as a matter of law",
+    "reason": "再次依法判决申请的法定期限"
+  },
+  "5774": {
+    "subjectId": "constitutional-law",
+    "topic": "Ex Post Facto Clause",
+    "reason": "对既往犯罪加重处罚的溯及限制"
+  },
+  "5777": {
+    "subjectId": "contracts",
+    "topic": "Statute of frauds one-year provision",
+    "reason": "一年内不能完成合同的书面要求"
+  },
+  "5780": {
+    "subjectId": "evidence",
+    "topic": "Organizational routine practice",
+    "reason": "组织惯常行为证据"
+  },
+  "5783": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Criminal battery",
+    "reason": "刑事殴打的非法施力要件"
+  },
+  "5785": {
+    "subjectId": "torts",
+    "topic": "Invitees and premises liability",
+    "reason": "土地来访者身份与场所责任"
+  },
+  "5788": {
+    "subjectId": "real-property",
+    "topic": "Mortgage acceleration clauses",
+    "reason": "抵押合同违约后的加速到期"
+  },
+  "5791": {
+    "subjectId": "civil-procedure",
+    "topic": "Relief from a void judgment",
+    "reason": "欠缺管辖的缺席判决救济"
+  },
+  "5794": {
+    "subjectId": "contracts",
+    "topic": "Good faith and fair dealing",
+    "reason": "履行租赁约定中的诚信义务"
+  },
+  "5797": {
+    "subjectId": "constitutional-law",
+    "topic": "Content-neutral speech restrictions",
+    "reason": "广告牌限制与表达自由中度审查"
+  },
+  "5800": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Right to be present at trial",
+    "reason": "刑事被告到庭权与对质条款"
+  },
+  "5803": {
+    "subjectId": "evidence",
+    "topic": "Evidence rules in probation revocation",
+    "reason": "证据规则对缓刑撤销程序的适用范围"
+  },
+  "5806": {
+    "subjectId": "torts",
+    "topic": "Assault",
+    "reason": "侵权威胁接触与合理即时恐惧"
+  },
+  "5809": {
+    "subjectId": "real-property",
+    "topic": "Location of express easements",
+    "reason": "明示地役权的范围和位置确定"
+  },
+  "5812": {
+    "subjectId": "civil-procedure",
+    "topic": "Partial final judgments and immediate appeal",
+    "reason": "部分终局判决的立即上诉条件"
+  },
+  "5815": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Defense of property",
+    "reason": "刑事财产防卫与致命武力限制"
+  },
+  "5818": {
+    "subjectId": "constitutional-law",
+    "topic": "Supreme Court original jurisdiction",
+    "reason": "国会不能改变最高法院原始管辖范围"
+  },
+  "5821": {
+    "subjectId": "torts",
+    "topic": "Assumption of risk",
+    "reason": "爆破风险自担对侵权赔偿的影响"
+  },
+  "5824": {
+    "subjectId": "contracts",
+    "topic": "Concurrent conditions under the UCC",
+    "reason": "交付与付款义务的同时履行条件"
+  },
+  "5827": {
+    "subjectId": "real-property",
+    "topic": "Fixtures",
+    "reason": "附着物随不动产买卖转移"
+  },
+  "5830": {
+    "subjectId": "evidence",
+    "topic": "Statements against interest and confrontation",
+    "reason": "不利于陈述人利益的非证言性传闻"
+  },
+  "5833": {
+    "subjectId": "civil-procedure",
+    "topic": "Final-judgment rule",
+    "reason": "多项请求尚未终结时的上诉条件"
+  },
+  "5836": {
+    "subjectId": "constitutional-law",
+    "topic": "Content-neutral regulation of expressive conduct",
+    "reason": "针对表达性行为的中立限制"
+  },
+  "5839": {
+    "subjectId": "torts",
+    "topic": "Negligent infliction of emotional distress",
+    "reason": "纯精神损害的过失侵权赔偿限制"
+  },
+  "5842": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Merger and double jeopardy",
+    "reason": "不同受害人的未遂与既遂罪不合并"
+  },
+  "5845": {
+    "subjectId": "contracts",
+    "topic": "Buyer's cover damages",
+    "reason": "卖方不交付时买方替代采购赔偿"
+  },
+  "5848": {
+    "subjectId": "real-property",
+    "topic": "Conflict of laws for real property",
+    "reason": "不动产遗赠适用所在地法律"
+  },
+  "5851": {
+    "subjectId": "torts",
+    "topic": "Fraud and intentional misrepresentation",
+    "reason": "欺诈侵权需要故意虚假陈述及信赖"
+  },
+  "5855": {
+    "subjectId": "civil-procedure",
+    "topic": "Erie doctrine and class actions",
+    "reason": "联邦程序规则控制集体诉讼条件"
+  },
+  "5858": {
+    "subjectId": "real-property",
+    "topic": "Deed in lieu of foreclosure and junior interests",
+    "reason": "以契据抵债不消灭次顺位抵押"
+  },
+  "5861": {
+    "subjectId": "constitutional-law",
+    "topic": "Overbreadth",
+    "reason": "表达自由限制过度宽泛的违宪性"
+  },
+  "5864": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Death penalty and intellectual disability",
+    "reason": "智力障碍被告死刑的第八修正案限制"
+  },
+  "5867": {
+    "subjectId": "contracts",
+    "topic": "Divisible contracts",
+    "reason": "可分合同已完成部分的价款请求"
+  },
+  "5870": {
+    "subjectId": "evidence",
+    "topic": "Prior inconsistent statements",
+    "reason": "先前不一致陈述用于弹劾或实体证明"
+  },
+  "5873": {
+    "subjectId": "torts",
+    "topic": "Learned-intermediary rule",
+    "reason": "药品警示缺陷与知情中介抗辩"
+  },
+  "5876": {
+    "subjectId": "civil-procedure",
+    "topic": "Modification of final pretrial orders",
+    "reason": "终局审前命令仅为防止明显不公而修改"
+  },
+  "5879": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Double jeopardy and retrial",
+    "reason": "较轻罪定罪撤销后的重审范围"
+  },
+  "5882": {
+    "subjectId": "contracts",
+    "topic": "Trade usage",
+    "reason": "以行业惯例解释合同术语"
+  },
+  "5885": {
+    "subjectId": "constitutional-law",
+    "topic": "Content-based restrictions in public forums",
+    "reason": "公共论坛内容限制的严格审查"
+  },
+  "5888": {
+    "subjectId": "torts",
+    "topic": "Economic loss in products liability",
+    "reason": "产品严格责任不赔纯经济损失"
+  },
+  "5891": {
+    "subjectId": "evidence",
+    "topic": "Other crimes and noncharacter purposes",
+    "reason": "其他犯罪行为证据与禁止品格推断"
+  },
+  "5894": {
+    "subjectId": "real-property",
+    "topic": "Title insurance coverage",
+    "reason": "产权保险对继承人与转受让人的保护"
+  },
+  "5897": {
+    "subjectId": "civil-procedure",
+    "topic": "Judgment as a matter of law standard",
+    "reason": "依法判决的证据充分性标准"
+  },
+  "5900": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Voluntary manslaughter and provocation",
+    "reason": "充分挑衅及激情杀人的降格"
+  },
+  "5903": {
+    "subjectId": "contracts",
+    "topic": "Intended third-party beneficiaries",
+    "reason": "第三人受益权与可对抗的合同抗辩"
+  },
+  "5906": {
+    "subjectId": "evidence",
+    "topic": "Statements against interest",
+    "reason": "不利于陈述人利益的传闻例外"
+  },
+  "5909": {
+    "subjectId": "constitutional-law",
+    "topic": "Land-use exactions",
+    "reason": "开发许可附条件与征收条款"
+  },
+  "5912": {
+    "subjectId": "contracts",
+    "topic": "Restitution after material breach",
+    "reason": "重大违约方可得返还救济"
+  },
+  "5915": {
+    "subjectId": "real-property",
+    "topic": "Zoning variances",
+    "reason": "自行造成困难不支持分区豁免"
+  },
+  "5918": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Brady disclosure",
+    "reason": "检方披露有利及弹劾证据的义务"
+  },
+  "5921": {
+    "subjectId": "evidence",
+    "topic": "Extrinsic evidence of prior inconsistent statements",
+    "reason": "先前不一致陈述的外部弹劾证据"
+  },
+  "5924": {
+    "subjectId": "real-property",
+    "topic": "Broker fiduciary duties",
+    "reason": "房地产经纪人披露本人及亲属利益"
+  },
+  "5927": {
+    "subjectId": "torts",
+    "topic": "Economic loss rule",
+    "reason": "产品本身毁损不支持严格产品责任"
+  },
+  "5930": {
+    "subjectId": "civil-procedure",
+    "topic": "Relief from judgment for mistake",
+    "reason": "因错误申请判决救济的一年期限"
+  },
+  "5933": {
+    "subjectId": "real-property",
+    "topic": "Mortgage acceleration and waste",
+    "reason": "抵押物毁损触发加速到期"
+  },
+  "5935": {
+    "subjectId": "torts",
+    "topic": "Nondelegable duties",
+    "reason": "独立承包商与不得转移的侵权义务"
+  },
+  "5938": {
+    "subjectId": "criminal-law-procedure",
+    "topic": "Plain error on criminal appeal",
+    "reason": "未保留异议时刑事上诉的明显错误审查"
+  },
+  "5941": {
+    "subjectId": "contracts",
+    "topic": "Seller's resale damages",
+    "reason": "买方毁约后卖方完成制造并转售的赔偿"
+  },
+  "5944": {
+    "subjectId": "evidence",
+    "topic": "Expert opinion on criminal mental state",
+    "reason": "专家不得判断刑事被告最终心理状态"
+  },
+  "5947": {
+    "subjectId": "constitutional-law",
+    "topic": "Expressive conduct and intermediate scrutiny",
+    "reason": "公共裸露规制与表达自由中度审查"
+  }
+}

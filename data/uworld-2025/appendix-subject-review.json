@@ -1,0 +1,110 @@
+{
+  "method": "Each of the 200 question stems and original Educational objective passages was read; subject follows the rule actually tested, not the factual setting. No current-law review performed.",
+  "count": 200,
+  "subjectCounts": {
+    "civil-procedure": 28,
+    "constitutional-law": 28,
+    "contracts": 29,
+    "torts": 29,
+    "evidence": 29,
+    "real-property": 29,
+    "criminal-law-procedure": 28
+  },
+  "unresolved": [],
+  "boundaryReviewNotes": [
+    {
+      "pages": [
+        5407,
+        5711
+      ],
+      "subjectId": "constitutional-law",
+      "possibleAdjacentSubject": "civil-procedure",
+      "reason": "题目以案件争议及mootness为核心，归入宪法可诉性；不是具体联邦程序规则。"
+    },
+    {
+      "pages": [
+        5458,
+        5830
+      ],
+      "subjectId": "evidence",
+      "possibleAdjacentSubject": "criminal-law-procedure",
+      "reason": "虽涉及Confrontation Clause，但具体考点是庭外陈述可采性、传闻例外及丧失证据异议。"
+    },
+    {
+      "pages": [
+        5476
+      ],
+      "subjectId": "evidence",
+      "possibleAdjacentSubject": "criminal-law-procedure",
+      "reason": "原解析考查及时证据异议及FRE 103，按证据规则归类。"
+    },
+    {
+      "pages": [
+        5661
+      ],
+      "subjectId": "evidence",
+      "possibleAdjacentSubject": "civil-procedure",
+      "reason": "联邦多元管辖是背景，原解析核心是FRE 501下的证据特权准据法。"
+    },
+    {
+      "pages": [
+        5699
+      ],
+      "subjectId": "evidence",
+      "possibleAdjacentSubject": "civil-procedure",
+      "reason": "原解析核心是法院按证据规则控制询问及作证顺序。"
+    },
+    {
+      "pages": [
+        5720,
+        5803
+      ],
+      "subjectId": "evidence",
+      "possibleAdjacentSubject": "criminal-law-procedure",
+      "reason": "大陪审团及缓刑撤销是程序背景，问题直接考查FRE的适用范围。"
+    },
+    {
+      "pages": [
+        5747
+      ],
+      "subjectId": "torts",
+      "possibleAdjacentSubject": "civil-procedure",
+      "reason": "虽通过impleader提出问题，原解析实际考查后续过失是否构成superseding cause。"
+    },
+    {
+      "pages": [
+        5794
+      ],
+      "subjectId": "contracts",
+      "possibleAdjacentSubject": "real-property",
+      "reason": "租赁是交易背景，决定答案的原解析规则是所有合同中的good faith and fair dealing。"
+    },
+    {
+      "pages": [
+        5652,
+        5756,
+        5909
+      ],
+      "subjectId": "constitutional-law",
+      "possibleAdjacentSubject": "real-property",
+      "reason": "题目直接询问政府措施的合宪性，解析考查Takings Clause、just compensation或exaction宪法标准。"
+    },
+    {
+      "pages": [
+        5848
+      ],
+      "subjectId": "real-property",
+      "possibleAdjacentSubject": "civil-procedure",
+      "reason": "遗嘱及冲突法是背景，原解析是specific rule for real property situs law；七科中归不动产。"
+    },
+    {
+      "pages": [
+        5864,
+        5938
+      ],
+      "subjectId": "criminal-law-procedure",
+      "possibleAdjacentSubject": "constitutional-law/evidence",
+      "reason": "分别直接考查刑事死刑量刑限制、刑事上诉plain error；后者引用《联邦刑事诉讼规则》第52(b)条。"
+    }
+  ]
+}

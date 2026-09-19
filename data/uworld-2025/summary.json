@@ -1,0 +1,16 @@
+{
+  "questionCount": 2003,
+  "batchCount": 46,
+  "subjects": {
+    "civil-procedure": 325,
+    "constitutional-law": 271,
+    "contracts": 302,
+    "criminal-law-procedure": 276,
+    "evidence": 294,
+    "real-property": 277,
+    "torts": 258
+  },
+  "imageReferences": 1648,
+  "uniqueImageFiles": 1381,
+  "emptyFactPatterns": 8
+}

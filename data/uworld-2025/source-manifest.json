@@ -1,0 +1,59 @@
+{
+  "fileName": "2025UWorld MBE QBank.pdf",
+  "sha256": "859fe102be0372d7c0517af8a52c758683a75cc4b287803bc99951462b5d6e01",
+  "pageCount": 5950,
+  "bookmarks": [
+    {
+      "title": "Civil Procedure",
+      "startPage": 1,
+      "endPage": 899
+    },
+    {
+      "title": "Constitutional Law",
+      "startPage": 900,
+      "endPage": 1626
+    },
+    {
+      "title": "Contracts",
+      "startPage": 1627,
+      "endPage": 2433
+    },
+    {
+      "title": "Criminal Law",
+      "startPage": 2434,
+      "endPage": 2907
+    },
+    {
+      "title": "Criminal Procedure",
+      "startPage": 2908,
+      "endPage": 3162
+    },
+    {
+      "title": "Evidence",
+      "startPage": 3163,
+      "endPage": 3946
+    },
+    {
+      "title": "Real Property",
+      "startPage": 3947,
+      "endPage": 4667
+    },
+    {
+      "title": "Torts",
+      "startPage": 4668,
+      "endPage": 5356
+    },
+    {
+      "title": "NCBE200题",
+      "startPage": 5357,
+      "endPage": 5950
+    }
+  ],
+  "metadata": {
+    "/Author": "python-docx",
+    "/CreationDate": "D:20230222213340+08'00'",
+    "/Creator": "Microsoft® Word 2019",
+    "/ModDate": "D:20240115142527+08'00'",
+    "/Producer": "Microsoft® Word 2019"
+  }
+}

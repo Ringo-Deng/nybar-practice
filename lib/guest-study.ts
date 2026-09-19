@@ -80,10 +80,17 @@ function studyPayload(state:GuestStudyState,requestedSessionId?:string|null):Stu
   if(session.mode==='exam'&&session.status!=='finished')return [];
   return Object.entries(session.answers).map(([questionId,answer])=>({questionId,selected:answer.selected,correct:answer.selected!==''&&answer.selected===questionById.get(questionId)?.explanation.answer,answeredAt:answer.answeredAt,sessionId:session.id}));
  }).sort((a,b)=>b.answeredAt-a.answeredAt||b.sessionId.localeCompare(a.sessionId));
+ const byQuestion=new Map<string,{wrongCount:number;selected:string;lastCorrect:boolean}>();
+ // The existing sort puts the latest answer first, including the session-ID tie break.
+ for(const answer of graded){
+  const related=byQuestion.get(answer.questionId);
+  if(related){if(!answer.correct)related.wrongCount+=1;}
+  else byQuestion.set(answer.questionId,{wrongCount:answer.correct?0:1,selected:answer.selected,lastCorrect:answer.correct});
+ }
  const mistakes:StudyData['mistakes']=[];
  for(const question of questions){
-  const related=graded.filter(answer=>answer.questionId===question.id),wrongCount=related.filter(answer=>!answer.correct).length;
-  if(wrongCount)mistakes.push({questionId:question.id,wrongCount,selected:related[0].selected,lastCorrect:related[0].correct,topic:question.explanation.topic});
+  const related=byQuestion.get(question.id);
+  if(related?.wrongCount)mistakes.push({questionId:question.id,...related,topic:question.explanation.topic});
  }
  const completedAnswers=graded.filter(answer=>answer.selected),correct=completedAnswers.filter(answer=>answer.correct).length,unseen=publicQuestions();
  return {
@@ -119,6 +126,7 @@ export function applyGuestStudyAction(rawState:unknown,body:Record<string,unknow
   const filtered=filterQuestions(questions,{subjectId:body.subjectId as string|undefined,sourceId:body.sourceId as string|undefined,chapterId:body.chapterId as string|undefined,sourceSet:body.sourceSet as string|undefined});
   let ids=filtered.map(question=>question.id);
   if(!ids.length)invalid('所选来源、科目或章节尚未导入题目。');
+  if(body.mode==='practice'&&body.sourceSet===undefined)ids=ids.slice(0,50);
   if(body.mode==='wrong'){
    const data=studyPayload(state);
    ids=data.mistakes.filter(item=>!item.lastCorrect).map(item=>item.questionId);
