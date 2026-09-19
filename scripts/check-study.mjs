@@ -104,20 +104,37 @@ async function verifyTextbookSources(){
  assert.throws(()=>pageSource(imported,4),/无效/);
 }
 
-async function verifyPublishedBatches(){
+async function verifyPublishedSubjects(){
  const bank=JSON.parse(originalBank);
  if(!bank.length)return;
  const engine=await loadEngine('published',bank);
- const groups=Map.groupBy(bank,question=>question.sourceSet);
- let state=null;
+ const subjects=Map.groupBy(bank,question=>question.subjectId);
+ assert.equal(subjects.size,7,'The published bank must include all seven MBE subjects.');
+ // Older releases saved batches as explicit question IDs. Loading one must not expand or reset it.
+ const legacyQuestions=bank.filter(question=>question.sourceSet===bank[0].sourceSet);
+ assert(legacyQuestions.length>1&&legacyQuestions.length<=50,'The compatibility fixture must represent a historical batch.');
+ const legacyId=randomUUID();
+ const legacyPosition=Math.floor(legacyQuestions.length/2);
+ const legacyCurrent=legacyQuestions[legacyPosition];
+ const legacySession={
+  id:legacyId,mode:'practice',status:'active',questionIds:legacyQuestions.map(question=>question.id),position:legacyPosition,
+  startedAt:clock-3000,finishedAt:null,answers:{
+   [legacyQuestions[0].id]:{selected:legacyQuestions[0].explanation.answer,answeredAt:clock-2000},
+   [legacyCurrent.id]:{selected:legacyCurrent.options.find(option=>option.id!==legacyCurrent.explanation.answer).id,answeredAt:clock-1000},
+  },
+ };
+ let state=JSON.parse(JSON.stringify({version:1,currentSessionId:legacyId,sessions:[legacySession]}));
+ const run=action=>{clock+=1000;const result=engine.applyGuestStudyAction(state,action);state=result.state;return result.data;};
+ run({action:'hydrate',sessionId:legacyId});
+ assert.deepEqual(state.sessions[0],legacySession,'A saved batch must hydrate with its exact IDs, position, answers, and answer times.');
  let verified=0;
- for(const [sourceSet,questions] of groups){
-  assert(sourceSet,'Every imported question must belong to a batch.');
-  assert(questions.length<=50,'An imported batch must have at most 50 questions.');
+ for(const [subjectId,questions] of subjects){
+  assert(questions.length>50,'Each full subject must include questions beyond the old batch limit.');
+  assert(questions.every(question=>question.sourceId===questions[0].sourceId),'The published subject fixture must use one source.');
   const sessionId=randomUUID();
-  const run=action=>{clock+=1000;const result=engine.applyGuestStudyAction(state,action);state=result.state;return result.data;};
-  let data=run({action:'start',id:sessionId,mode:'practice',sourceId:questions[0].sourceId,subjectId:questions[0].subjectId,sourceSet});
-  assert.deepEqual(data.session.questionIds,questions.map(question=>question.id),'A batch must select exactly its imported questions, in source order.');
+  let data=run({action:'start',id:sessionId,mode:'practice',sourceId:questions[0].sourceId,subjectId});
+  const expectedIds=questions.map(question=>question.id);
+  assert.deepEqual(data.session.questionIds,expectedIds,'A subject session must select all its imported questions, in source order.');
   for(const position of new Set([0,questions.length-1])){
    const question=questions[position];
    data=run({action:'navigate',sessionId,position});
@@ -128,14 +145,23 @@ async function verifyPublishedBatches(){
   }
   state=JSON.parse(JSON.stringify(state));
   data=run({action:'hydrate',sessionId});
-  assert.equal(data.session.position,questions.length-1,'Refreshing must restore the imported batch position.');
-  assert.equal(data.session.answers[questions.at(-1).id].correct,true,'Refreshing must preserve the imported answer.');
+  assert.deepEqual(data.session.questionIds,expectedIds,'Refreshing must retain the full subject selection.');
+  assert.equal(data.session.position,questions.length-1,'Refreshing must restore the full subject position.');
+  for(const question of [questions[0],questions.at(-1)]){
+   assert.equal(data.session.answers[question.id].selected,question.explanation.answer,'Refreshing must preserve the first and last answers.');
+   assert.equal(data.session.answers[question.id].correct,true);
+  }
   verified+=questions.length;
  }
  assert.equal(verified,bank.length);
+ state=JSON.parse(JSON.stringify(state));
+ const legacyData=run({action:'hydrate',sessionId:legacyId});
+ assert.deepEqual(state.sessions.find(session=>session.id===legacyId),legacySession,'Starting full subject sessions must preserve an earlier saved batch.');
+ assert.equal(legacyData.session.answers[legacyQuestions[0].id].correct,true);
+ assert.equal(legacyData.session.answers[legacyCurrent.id].correct,false);
  const defaultSession=engine.applyGuestStudyAction(null,{action:'start',id:randomUUID(),mode:'practice'});
- assert.equal(defaultSession.data.session.questionIds.length,Math.min(bank.length,50));
- console.log(`Published batch checks passed: ${bank.length} questions in ${groups.size} batches; selection, grading, and refresh.`);
+ assert.deepEqual(defaultSession.data.session.questionIds,bank.map(question=>question.id),'Unfiltered practice must include the full published bank.');
+ console.log(`Published subject checks passed: ${bank.length} questions across ${subjects.size} full subjects; grading, refresh, and saved batch compatibility.`);
 }
 
 try{
@@ -180,7 +206,7 @@ try{
  assert.throws(()=>run(current.state,{action:'start',id:randomUUID(),mode:'wrong'}),/没有需要重练/);
  await verifyBrowserStorage(current.state);
  await verifyTextbookSources();
- await verifyPublishedBatches();
+ await verifyPublishedSubjects();
  const foreignEngine=await loadEngine('foreign',[fixture('foreign-question','evidence','A')]);
  assert.equal(foreignEngine.applyGuestStudyAction(current.state,{action:'hydrate'}).data.sessions.length,0,'Unknown question IDs must not create sessions in another library.');
  const emptyEngine=await loadEngine('empty',[]);

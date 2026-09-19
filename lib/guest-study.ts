@@ -126,7 +126,6 @@ export function applyGuestStudyAction(rawState:unknown,body:Record<string,unknow
   const filtered=filterQuestions(questions,{subjectId:body.subjectId as string|undefined,sourceId:body.sourceId as string|undefined,chapterId:body.chapterId as string|undefined,sourceSet:body.sourceSet as string|undefined});
   let ids=filtered.map(question=>question.id);
   if(!ids.length)invalid('所选来源、科目或章节尚未导入题目。');
-  if(body.mode==='practice'&&body.sourceSet===undefined)ids=ids.slice(0,50);
   if(body.mode==='wrong'){
    const data=studyPayload(state);
    ids=data.mistakes.filter(item=>!item.lastCorrect).map(item=>item.questionId);
@@ -157,7 +156,7 @@ export function applyGuestStudyAction(rawState:unknown,body:Record<string,unknow
   return {state,data:studyPayload(state,session.id)};
  }
  if(action==='finish'){
-  if(session.mode!=='exam'&&session.questionIds.some(id=>!session.answers[id]))invalid('请先完成本组题目。');
+  if(session.mode!=='exam'&&session.questionIds.some(id=>!session.answers[id]))invalid('请先完成本次练习的全部题目。');
   finishSession(session);
   return {state,data:studyPayload(state,session.id)};
  }
