@@ -1,0 +1,16 @@
+{
+  "sourcePdfSha256": "859fe102be0372d7c0517af8a52c758683a75cc4b287803bc99951462b5d6e01",
+  "targetLocale": "zh-Hans",
+  "questions": 2003,
+  "initialDraftModel": "Argos Translate English-to-Chinese 1.9 (offline CTranslate2)",
+  "initialDraftModelSha256": "1a039114d9456b6528fabb65b455b6f156319634a0f984b1f6018f7737d67598",
+  "initialDraftGeneratedAt": "2026-09-21T07:48:08.322384+00:00",
+  "initialDraftNumericReviewFlags": 1448,
+  "aiBatchModel": "Qwen3-8B-4bit via MLX (local)",
+  "aiBatchCheckpoint": "data/uworld-2025/ai-retranslated-reviewed-batch.jsonl",
+  "aiCoreQuestions": 422,
+  "aiExplanationQuestions": 4,
+  "sourceReviewedOverrideFields": 120,
+  "sourceReviewedTopicLabels": 203,
+  "batchAppliedAt": "2026-09-21T09:34:25.539133+00:00"
+}

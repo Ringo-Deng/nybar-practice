@@ -7,11 +7,11 @@ import {linkedTextbooks,textbookById,type LinkedTextbookReference} from '@/lib/t
 import {preloadTextbookPage} from '@/lib/textbook-pdf';
 import {newglawNotesForQuestion} from '@/lib/newglaw-notes';
 import {NewglawKnowledgeNotes} from './newglaw-knowledge-notes';
-import {normalizeExplanationText} from '@/lib/question-text';
 import {sourceById} from '@/lib/question-sources';
 import {subjectById} from '@/lib/subjects';
-import {useTranslation} from './use-translation';
+import {staticTranslation} from './static-translation';
 import {TranslationStatus} from './translation-status';
+import {PublisherExplanation} from './publisher-explanation';
 
 export function SourceImages({images,label}:{images:SourceImage[];label:string}){
  const assetUrl=(src:string)=>typeof document==='undefined'?src:new URL(src.replace(/^\/+/,''),new URL(import.meta.env.BASE_URL,document.baseURI)).toString();
@@ -24,22 +24,25 @@ export function OriginalAnswerReview({question:q,onOpenTextbook}:{question:Quest
  const newglawNotes=newglawNotesForQuestion(q);
  const[zhQuestionId,setZhQuestionId]=useState<string|null>(null);
  const showZh=zhQuestionId===q.id;
- const english=normalizeExplanationText(e.en);
+ const english=e.en.trim();
  const subject=subjectById(q.subjectId);
- const translation=useTranslation(`${q.id}:explanation`,{
-  body:{en:english,zh:normalizeExplanationText(e.zh)},
-  topic:{en:e.topic,zh:e.topic===subject?.en?subject.zh:undefined},
+ const translation=staticTranslation({
+  body:{en:english,zh:e.zh},
+  topic:{en:e.topic,zh:e.topicZh??(e.topic===subject?.en?subject.zh:undefined)},
  });
- const storedZh=normalizeExplanationText(translation.values.body??'');
- function toggleLanguage(){if(showZh){translation.cancel();setZhQuestionId(null);}else{setZhQuestionId(q.id);void translation.load();}}
+ const storedZh=(translation.values.body??'').trim();
+ const layoutImages=(e.images??[]).filter(image=>image.src.includes('-original-layout.'));
+ const figureImages=(e.images??[]).filter(image=>!image.src.includes('-original-layout.'));
+ function toggleLanguage(){setZhQuestionId(showZh?null:q.id);}
  return <article id="answer-review" className="answer-review publisher-review" aria-label="原书答案与解析">
   <h2 className="sr-only">原书答案与解析</h2>
   <div className="review-body">
    {e.warning&&<p className="source-review-note">{e.warning}</p>}
    {(!!english||!!storedZh)&&<div className="review-language-control"><Button variant="ghost" size="sm" aria-pressed={showZh} onClick={toggleLanguage}><Languages size={16}/> {showZh?'显示英文':'显示中文'}</Button></div>}
    {showZh&&<TranslationStatus translation={translation}/>}
-   {showZh&&storedZh?<section className="analysis-section original-analysis" lang="zh-CN"><div className="tested-topic">本题考查：{translation.values.topic||e.topic}</div>{storedZh.split(/\n\s*\n/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}</section>:<section className="analysis-section original-analysis" lang="en"><div className="tested-topic">Area of law assessed: {e.topic}</div>{english.split(/\n\s*\n/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}</section>}
-   {!!e.images?.length&&<SourceImages images={e.images} label="原文图表"/>}
+   {!!layoutImages.length&&<div className="publisher-layout"><SourceImages images={layoutImages} label="原书图表与版面"/><p>图表、列表的布局以原书页面为准；下方文字从 PDF 提取。</p></div>}
+   {!!figureImages.length&&<SourceImages images={figureImages} label="原书图示"/>}
+   {showZh&&storedZh?<section className="analysis-section original-analysis" lang="zh-CN"><div className="tested-topic">本题考查：{translation.values.topic||e.topic}</div><PublisherExplanation text={storedZh} hasLayout={!!layoutImages.length}/></section>:<section className="analysis-section original-analysis" lang="en"><div className="tested-topic">Area of law assessed: {e.topic}</div><PublisherExplanation text={english} hasLayout={!!layoutImages.length}/></section>}
    <NewglawKnowledgeNotes notes={newglawNotes}/>
   </div>
   <footer className="review-footer">

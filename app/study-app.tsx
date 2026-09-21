@@ -28,7 +28,7 @@ import {useTextbookAnnotations} from './use-textbook-annotations';
 import {useTextbookCatalog} from './use-textbook-catalog';
 import {normalizeInlineQuestionText} from '@/lib/question-text';
 import {applyGuestStudyAction} from '@/lib/guest-study';
-import {useTranslation} from './use-translation';
+import {staticTranslation} from './static-translation';
 import {TranslationStatus} from './translation-status';
 import {readWorkspace,hydrateWorkspace,writeWorkspace,workspaceKey,type WorkspaceSnapshot} from '@/lib/study-workspace';
 const modeName=(m:string)=>m==='exam'?'历史练习':m==='wrong'?'错题重练':'刷题练习';
@@ -63,10 +63,10 @@ function StudyContent({authenticated,standalone}:{authenticated:boolean;standalo
  const displayStem=normalizeInlineQuestionText(q?.stem??'');
  const displayAsk=normalizeInlineQuestionText(q?.ask??'');
  const displayOptions=useMemo(()=>q?.options.map(option=>normalizeInlineQuestionText(option.en))??[],[q]);
- const questionTranslation=useTranslation(q?.id??'',{
+ const questionTranslation=staticTranslation({
   stem:{en:q?.stem??'',zh:q?.stemZh},ask:{en:q?.ask??'',zh:q?.askZh},
   ...Object.fromEntries((q?.options??[]).map(option=>[`option-${option.id}`,{en:option.en,zh:option.zh}])),
- },view==='practice'&&!summary&&!activeExam);
+ });
  const visibleStemZh=normalizeInlineQuestionText(questionTranslation.values.stem??'');
  const visibleAskZh=normalizeInlineQuestionText(questionTranslation.values.ask??'');
  const visibleOptionZh=(index:number)=>normalizeInlineQuestionText(questionTranslation.values[`option-${q?.options[index]?.id}`]??'');
@@ -103,12 +103,12 @@ function StudyContent({authenticated,standalone}:{authenticated:boolean;standalo
  async function submit(){if(!q||!session||!selected||busyRef.current||graded)return;const d=await mutate({action:'answer',sessionId:session.id,questionId:q.id,selected});if(d){if(d.session?.mode==='exam'&&d.session.status==='finished')setSummary(true);}}
  async function choose(value:string){if(busyRef.current||graded)return;setSelected(value);if(activeExam&&q){const d=await mutate({action:'answer',sessionId:session.id,questionId:q.id,selected:value});if(d?.session?.status==='finished')setSummary(true);}}
  async function finishSession(){if(!session)return;const d=await mutate({action:'finish',sessionId:session.id});if(d){setDialog(null);setSummary(true);}}
- function toggleQuestionLanguage(){if(showZh){questionTranslation.cancel();setShowZh(false);}else{setShowZh(true);void questionTranslation.load();}}
+ function toggleQuestionLanguage(){setShowZh(!showZh);}
  async function openSession(s:Session){if(busyRef.current)return;if(s.id===session?.id&&session.mode!=='exam'){setView('practice');setSummary(session.status==='finished');return;}busyRef.current=true;setBusy(true);setError('');try{const d=await request(undefined,s.id);adopt(d);setView('practice');setSummary(d.session?.status==='finished');setShowZh(false);}catch(e){setError((e as Error).message);}finally{busyRef.current=false;setBusy(false);}}
  const unsavedExam=activeExam&&selected!==(answer?.selected??'');
  webActions.current={read:()=>({view,mode:session?.mode??'practice',question:q?{id:q.id,number:q.number,stem:q.stem,ask:q.ask,options:q.options}:null,selected,submitted:graded,stats:data?.stats}),navigate:async(input:unknown)=>{const n=(input as {questionNumber?:number})?.questionNumber;if(!Number.isInteger(n)||!n||n<1||n>ids.length)throw Error('Invalid questionNumber');if(unsavedExam)throw Error('Save the pending exam answer first');const index=n-1;if(!await navigate(index))throw Error('Unable to navigate');return{questionNumber:n};}};
  useEffect(()=>{const context=(document as Document&{modelContext?:{registerTool:(t:unknown,o:unknown)=>Promise<void>|void}}).modelContext;if(!context?.registerTool)return;const lifecycle=new AbortController();const registrations=[{name:'read_current_nybar_question',description:'Read the visible practice question, staged selection and study statistics without showing an unsubmitted answer.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true,untrustedContentHint:false},execute:(input:unknown)=>{if(input&&Object.keys(input as object).length)throw Error('No arguments accepted');return webActions.current.read(input);}},{name:'navigate_to_nybar_question',description:'Navigate to a numbered question in the current practice session and save its position. Does not submit an answer.',inputSchema:{type:'object',properties:{questionNumber:{type:'integer',minimum:1}},required:['questionNumber'],additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:false},execute:(input:unknown)=>webActions.current.navigate(input)}];for(const t of registrations){try{void Promise.resolve(context.registerTool(t,{signal:lifecycle.signal})).catch(()=>{});}catch{}}return()=>lifecycle.abort();},[]);
- const switchView=(v:string)=>{questionTranslation.cancel();setShowZh(false);setView(v);setSummary(false);};
+ const switchView=(v:string)=>{setShowZh(false);setView(v);setSummary(false);};
  const pending=data?.mistakes.filter(m=>!m.lastCorrect)??[];
  const focusedPractice=view==='practice'&&!summary;
  const previousQuestionButton=<Button variant="ghost" disabled={position===0||busy||!!unsavedExam} onClick={()=>navigate(position-1)}><ChevronLeft size={16}/>上一题</Button>;
