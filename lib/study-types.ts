@@ -9,4 +9,5 @@ export type Session={id:string;mode:'practice'|'exam'|'wrong';status:'active'|'f
 export type StudyStat={answered:number;correct:number;accuracy:number|null};
 export type ChapterStudyStat=StudyStat&{chapterId:string|null};
 export type SubjectStudyStat=StudyStat&{subjectId:string;chapters:ChapterStudyStat[]};
-export type StudyData={questions:Question[];session:Session|null;sessions:Session[];stats:StudyStat&{wrongCount:number;subjects:SubjectStudyStat[]};mistakes:{questionId:string;wrongCount:number;selected:string;lastCorrect:boolean;topic:string}[]};
+export type QuestionStudyStat={correct:number;wrong:number};
+export type StudyData={questions:Question[];session:Session|null;sessions:Session[];stats:StudyStat&{wrongCount:number;subjects:SubjectStudyStat[]};questionStats:Record<string,QuestionStudyStat>;mistakes:{questionId:string;wrongCount:number;selected:string;lastCorrect:boolean;topic:string}[]};

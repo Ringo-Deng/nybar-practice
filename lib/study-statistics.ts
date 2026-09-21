@@ -1,6 +1,6 @@
 import {chapterById} from './chapters';
 import {subjects} from './subjects';
-import type {Question,StudyStat,SubjectStudyStat} from './study-types';
+import type {Question,QuestionStudyStat,StudyStat,SubjectStudyStat} from './study-types';
 
 type Attempt={questionId:string;correct:boolean};
 type Count={answered:number;correct:number};
@@ -30,4 +30,15 @@ export function buildSubjectStudyStats(attempts:Attempt[],questions:Pick<Questio
   const chapters=[...(chapterTotals.get(subject.id)?.entries()??[])].map(([chapterId,count])=>({chapterId,...result(count)}));
   return {subjectId:subject.id,...result(totals.get(subject.id)??{answered:0,correct:0}),chapters};
  });
+}
+
+export function buildQuestionStudyStats(attempts:(Attempt&{selected:string})[]):Record<string,QuestionStudyStat>{
+ const stats:Record<string,QuestionStudyStat>={};
+ for(const attempt of attempts){
+  if(!attempt.selected)continue;
+  const count=stats[attempt.questionId]??{correct:0,wrong:0};
+  if(attempt.correct)count.correct+=1;else count.wrong+=1;
+  stats[attempt.questionId]=count;
+ }
+ return stats;
 }

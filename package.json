@@ -12,6 +12,9 @@
     "build:github-pages": "npm run build",
     "check:questions": "node --experimental-strip-types scripts/audit-question-bank.mjs",
     "check:study": "node scripts/check-study.mjs",
+    "check:library": "node scripts/check-library.cjs",
+    "check:workspace": "node scripts/check-workspace.cjs",
+    "check:question-copy": "node scripts/check-question-copy.cjs",
     "check:translations": "node scripts/check-translations.mjs"
   },
   "dependencies": {

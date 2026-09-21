@@ -1,7 +1,7 @@
 import {chapterById,filterQuestions} from './chapters';
 import {questions,publicQuestions} from './questions';
 import {sourceById} from './question-sources';
-import {buildSubjectStudyStats} from './study-statistics';
+import {buildQuestionStudyStats,buildSubjectStudyStats} from './study-statistics';
 import {examDurationMs} from './study-timing';
 import {subjectById} from './subjects';
 import type {Session,StudyData} from './study-types';
@@ -15,7 +15,7 @@ export type GuestStudyState={version:1;currentSessionId:string|null;sessions:Gue
 export type GuestStudyResult={state:GuestStudyState;data:StudyData};
 
 const UUID=/^[0-9a-f-]{36}$/i;
-const MAX_SESSIONS=100;
+const MAX_RECENT_SESSIONS=100;
 const questionById=new Map(questions.map(question=>[question.id,question]));
 
 export function emptyGuestStudyState():GuestStudyState{return {version:1,currentSessionId:null,sessions:[]};}
@@ -26,7 +26,7 @@ function sanitizeState(value:unknown):GuestStudyState{
  const input=value as Partial<GuestStudyState>;
  const sessions:Array<GuestSessionState>=[];
  const seen=new Set<string>();
- for(const raw of Array.isArray(input.sessions)?input.sessions.slice(0,MAX_SESSIONS):[]){
+ for(const raw of Array.isArray(input.sessions)?input.sessions:[]){
   if(!raw||typeof raw!=='object'||Array.isArray(raw))continue;
   const item=raw as Partial<GuestSessionState>;
   if(typeof item.id!=='string'||!UUID.test(item.id)||seen.has(item.id)||!['practice','exam','wrong'].includes(String(item.mode)))continue;
@@ -90,7 +90,7 @@ function studyPayload(state:GuestStudyState,requestedSessionId?:string|null):Stu
  const mistakes:StudyData['mistakes']=[];
  for(const question of questions){
   const related=byQuestion.get(question.id);
-  if(related?.wrongCount)mistakes.push({questionId:question.id,...related,topic:question.explanation.topic});
+  if(related?.wrongCount&&!related.lastCorrect)mistakes.push({questionId:question.id,...related,topic:question.explanation.topic});
  }
  const completedAnswers=graded.filter(answer=>answer.selected),correct=completedAnswers.filter(answer=>answer.correct).length,unseen=publicQuestions();
  return {
@@ -99,8 +99,9 @@ function studyPayload(state:GuestStudyState,requestedSessionId?:string|null):Stu
    return visible?question:unseen[index];
   }),
   session:current,
-  sessions:state.sessions.map(serialize),
-  stats:{answered:completedAnswers.length,correct,accuracy:completedAnswers.length?Math.round(correct/completedAnswers.length*100):null,wrongCount:mistakes.filter(item=>!item.lastCorrect).length,subjects:buildSubjectStudyStats(completedAnswers,questions)},
+  sessions:state.sessions.slice(0,MAX_RECENT_SESSIONS).map(serialize),
+  questionStats:buildQuestionStudyStats(graded),
+  stats:{answered:completedAnswers.length,correct,accuracy:completedAnswers.length?Math.round(correct/completedAnswers.length*100):null,wrongCount:mistakes.length,subjects:buildSubjectStudyStats(completedAnswers,questions)},
   mistakes,
  };
 }
@@ -136,7 +137,7 @@ export function applyGuestStudyAction(rawState:unknown,body:Record<string,unknow
    if(!ids.length)invalid('暂时没有需要重练的错题。');
   }
   const session:GuestSessionState={id:body.id,mode:body.mode as Session['mode'],status:'active',questionIds:ids,position:0,startedAt:Date.now(),finishedAt:null,answers:{}};
-  state.sessions=[session,...state.sessions].slice(0,MAX_SESSIONS);state.currentSessionId=session.id;
+  state.sessions=[session,...state.sessions];state.currentSessionId=session.id;
   return {state,data:studyPayload(state,session.id)};
  }
  const session=activeSession(state,body.sessionId);
@@ -152,11 +153,12 @@ export function applyGuestStudyAction(rawState:unknown,body:Record<string,unknow
   const question=typeof body.questionId==='string'?questionById.get(body.questionId):undefined;
   if(!question||!session.questionIds.includes(question.id)||!question.options.some(option=>option.id===body.selected))invalid('请选择有效答案。');
   if(session.mode!=='exam'&&session.answers[question.id])return {state,data:studyPayload(state,session.id)};
-  session.answers[question.id]={selected:String(body.selected),answeredAt:Date.now()};
+  const answeredAt=state.sessions.reduce((latest,item)=>Math.max(latest,(item.answers[question.id]?.answeredAt??0)+1),Date.now());
+  session.answers[question.id]={selected:String(body.selected),answeredAt};
   return {state,data:studyPayload(state,session.id)};
  }
  if(action==='finish'){
-  if(session.mode!=='exam'&&session.questionIds.some(id=>!session.answers[id]))invalid('请先完成本次练习的全部题目。');
+  if(session.mode!=='exam'&&session.questionIds.some(id=>!session.answers[id]))invalid('请先完成本组题目。');
   finishSession(session);
   return {state,data:studyPayload(state,session.id)};
  }

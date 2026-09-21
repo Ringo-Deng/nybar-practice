@@ -198,8 +198,8 @@ try{
  current=run(current.state,{action:'finish',sessionId:wrongSessionId});
  current=run(JSON.parse(JSON.stringify(current.state)),{action:'hydrate'});
  assert.equal(current.data.stats.wrongCount,0);
- assert.equal(current.data.mistakes[0].lastCorrect,true,'A corrected mistake must remain in history.');
- assert.equal(current.data.mistakes[0].wrongCount,1);
+ assert.equal(current.data.mistakes.length,0,'A corrected mistake must leave the active mistake notebook.');
+ assert.deepEqual(current.data.questionStats[first.id],{correct:1,wrong:1},'Per-question totals must retain both attempts after correction.');
  assert.equal(current.data.stats.answered,3);
  assert.equal(current.data.stats.correct,2);
  assert.equal(current.data.stats.subjects.find(item=>item.subjectId==='evidence').answered,2);
@@ -215,7 +215,7 @@ try{
  assert.equal(empty.data.stats.answered,0);
  assert.equal(empty.data.session,null);
  assert.throws(()=>emptyEngine.applyGuestStudyAction(null,{action:'start',id:randomUUID(),mode:'practice'}),/尚未导入/);
- console.log('Study checks passed: answer grading, correction, refresh, empty library, isolated browser storage, and imported PDF paths.');
+ console.log('Study checks passed: answer grading, correction removal, per-question totals, refresh, empty library, isolated browser storage, and imported PDF paths.');
 }finally{
  Date.now=originalNow;
  await rm(temporaryRoot,{recursive:true,force:true});
